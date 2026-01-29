@@ -2,7 +2,7 @@
 include("includes/db.php");
 
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['role'])) {
-    header("Location: /Online%20Food%20Helpline%20System/auth/login.php");
+    header("Location: auth/login.php");
     exit;
 }
 
@@ -20,7 +20,7 @@ switch ($_SESSION['role']) {
         header("Location: volunteer/dashboard.php");
         break;
     default:
-        header("Location: /Online%20Food%20Helpline%20System/auth/login.php");
+        header("Location: auth/login.php");
         break;
 }
 exit;

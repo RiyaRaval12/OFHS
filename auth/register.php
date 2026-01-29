@@ -53,18 +53,23 @@
 
 <?php
 if (isset($_POST['register'])) {
-    $stmt = $conn->prepare(
-      "INSERT INTO users (name,email,phone,password,role)
-       VALUES (?,?,?,?,?)"
-    );
-    $stmt->execute([
-        $_POST['name'],
-        $_POST['email'],
-        $_POST['phone'],
-        password_hash($_POST['password'], PASSWORD_DEFAULT),
-        $_POST['role']
-    ]);
-    echo "<script>alert('Registered Successfully'); window.location='login.php';</script>";
+    try {
+        $stmt = $conn->prepare(
+          "INSERT INTO users (name,email,phone,password,role)
+           VALUES (?,?,?,?,?)"
+        );
+        $stmt->execute([
+            $_POST['name'],
+            $_POST['email'],
+            $_POST['phone'],
+            password_hash($_POST['password'], PASSWORD_DEFAULT),
+            $_POST['role']
+        ]);
+        echo "<script>alert('Registered Successfully'); window.location='login.php';</script>";
+    } catch (Exception $e) {
+        $error = "Registration failed: " . $e->getMessage();
+        echo "<script>alert('$error');</script>";
+    }
 }
 ?>
 </body>
