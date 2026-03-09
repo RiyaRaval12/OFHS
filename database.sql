@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `food_listings` (
   KEY `user_id` (`user_id`),
   KEY `claimed_by` (`claimed_by`),
   KEY `volunteer_id` (`volunteer_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `food_listings`
